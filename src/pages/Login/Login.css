@@ -1,0 +1,7 @@
+.login_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 180px;
+}
+
