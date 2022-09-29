@@ -5,7 +5,6 @@ const initialProfile: IContactsState = {
   contactsRequest: false,
   contactsSuccess: false,
   contactsFailed: false,
-
   contacts: [],
 };
 
@@ -20,6 +19,7 @@ export const contactsReducer = (state = initialProfile, action: TContactsActions
       };
     }
     case GET_CONTACTS_SUCCESS: {
+      console.log("payload", action.payload)
       return {
         ...state,
         contactsRequest: false,

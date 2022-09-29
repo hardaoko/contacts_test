@@ -1,5 +1,5 @@
 
-import { AppDispatch, AppThunk} from "../../utils/types";
+import { AppDispatch, AppThunk, IContact} from "../../utils/types";
 import { contactsRequest } from "../Api";
 
 export const GET_CONTACTS_REQUEST = "GET_CONTACTS_REQUEST" as const;
@@ -11,7 +11,7 @@ export interface IGetContactsFailed  {type: typeof GET_CONTACTS_FAILED;}
 
 export interface IGetContactsSuccess  {
   type: typeof GET_CONTACTS_SUCCESS;
-  payload: any
+  payload: IContact[]
 }
 
 export type TContactsActions = IGetContactsRequest |

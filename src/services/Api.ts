@@ -9,19 +9,11 @@ export function checkResponse(response: Response) {
 }
 
 export const loginRequest = async (login: string, password: string) => {
-  const res = await fetch(`${baseUrl}/users?name=${login}&password=${password}`, {
-    method: "POST",
-    body: JSON.stringify({
-      login: login,
-      password: password,
-    }),
-  });
-  console.log(res)
+  const res = await fetch(`${baseUrl}/users?name=${login}&password=${password}`);
   return checkResponse(res);
 };
 
 export const contactsRequest = async () => {
   const res = await fetch(`${baseUrl}/contacts`);
-  console.log(res);
   return checkResponse(res);
 };

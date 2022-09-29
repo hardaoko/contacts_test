@@ -5,14 +5,6 @@ import { TContactsActions } from "../services/actions/contacts";
 import { TProfileActions } from "../services/actions/profile";
 import { store } from "../services/store";
 
-export type TAppActions = TProfileActions | TContactsActions;
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<TReturn = void> = ActionCreator<ThunkAction<TReturn, RootState, any, TAppActions>>;
-export type AppDispatch = ThunkDispatch<RootState, any, TAppActions>;
-
-export const useMySelector: TypedUseSelectorHook<RootState> = useSelector
-export const useMyDispatch = () => useDispatch<AppDispatch>()
 
 export interface IProfileState {
   loginRequest: boolean,
@@ -21,7 +13,7 @@ export interface IProfileState {
   isAuth: boolean,
 };
 
-interface IContact {
+export interface IContact {
   id: number,
   name: string,
   description: string
@@ -33,3 +25,17 @@ export interface IContactsState {
   contactsFailed: boolean,
   contacts: IContact[],
 }
+
+export interface IContactCardProps {
+  name: string,
+  description: string,
+}
+
+export type TAppActions = TProfileActions | TContactsActions;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<TReturn = void> = ActionCreator<ThunkAction<TReturn, RootState, any, TAppActions>>;
+export type AppDispatch = ThunkDispatch<RootState, any, TAppActions>;
+
+export const useMySelector: TypedUseSelectorHook<RootState> = useSelector
+export const useMyDispatch = () => useDispatch<AppDispatch>()

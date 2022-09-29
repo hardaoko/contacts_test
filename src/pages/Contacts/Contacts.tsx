@@ -1,19 +1,24 @@
-import {useEffect} from 'react'
-import { getContacts } from '../../services/actions/contacts';
-import { AppDispatch, useMyDispatch, useMySelector } from '../../utils/types';
+import { Grid } from '@mui/material';
+import { ContactCard } from '../../components/ContactCard/ContactCard';
+import { useMySelector } from '../../utils/types';
 import './Contacts.css'
 
 export const Contacts = () => {
-  const dispatch: AppDispatch = useMyDispatch();
   const { contacts } = useMySelector((store) => store.contacts);
 
-  useEffect(() => {
-    dispatch(getContacts());
-    console.log("contacts", contacts)
-  }, [dispatch]);
-
   return (
-    <div>KFKF</div>
+    <div className='contacts_container'>
+      {contacts.length > 0 && (
+        <Grid container spacing={3}>
+          {/* {contacts.map((item) => {
+            <Grid item>
+              <ContactCard name={item.name} description={contact.description}/>
+            </Grid>
+          })} */}
+
+        </Grid>
+      )}
+    </div>
   )
 }
 
