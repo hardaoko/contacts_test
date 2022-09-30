@@ -1,0 +1,55 @@
+@keyframes slide-from-top {
+  from {
+    top: -100%;
+    animation-timing-function: ease-out;
+  }
+  to {
+    top: 50%;
+  }
+}
+.modal_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 40px;
+  height: 300px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  animation-name: slide-from-top;
+  animation-duration: 0.2s;
+}
+
+.header_title {
+  margin-right: auto;
+}
+
+.modal_header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.modal_button {
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border: 0;
+}
+
+.modal_button:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.modal_button:active {
+  transform: scale(0.9);
+}

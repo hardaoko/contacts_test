@@ -24,11 +24,22 @@ export interface IContactsState {
   contactsSuccess: boolean,
   contactsFailed: boolean,
   contacts: IContact[],
+  modalVisible: boolean
 }
 
 export interface IContactCardProps {
   name: string,
   description: string,
+}
+
+export interface IModalOverlayProps {
+  onClose: () => void
+}
+
+export interface IModalProps {
+  title?: string,
+  children: React.ReactNode,
+  onClose: () => void
 }
 
 export type TAppActions = TProfileActions | TContactsActions;

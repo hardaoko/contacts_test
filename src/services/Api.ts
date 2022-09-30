@@ -1,4 +1,4 @@
-import { baseUrl, testUrl } from "../utils/constants";
+import { baseUrl } from "../utils/constants";
 
 export function checkResponse(response: Response) {
   if (!response.ok) {
@@ -15,5 +15,17 @@ export const loginRequest = async (login: string, password: string) => {
 
 export const contactsRequest = async () => {
   const res = await fetch(`${baseUrl}/contacts`);
+  return checkResponse(res);
+};
+
+export const addContactRequest = async (name: string, description: string) => {
+  const res = await fetch(`${baseUrl}/contacts`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json;charset=utf-8" },
+    body: JSON.stringify({
+      name: name,
+      description: description,
+    }),
+  });
   return checkResponse(res);
 };

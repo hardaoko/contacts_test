@@ -5,12 +5,17 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './ContactCard.css'
 
 export const ContactCard: FC<IContactCardProps> = (props) => {
-  console.log(props)
+
   return (
     <div className="card_container" >
-      <h2>{props.name}</h2>
-      <p>{props.description}</p>
-      <DeleteIcon/>
+      <div className="info_wrapper">
+        <h3 className="text">{props.name}</h3>
+        <p className="text">{props.description}</p>
+      </div>
+      <div className="icon_wrapper">
+        <DeleteIcon/>
+      </div>
+
     </div>
   )
 }

@@ -1,5 +1,28 @@
 .card_container {
-  padding: 10px 30px;
+  position: relative;
+  padding: 10px 30px 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 120px;
+}
+
+.text  {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+          line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.info_wrapper {
+  overflow: hidden;
+}
+
+.icon_wrapper {
+  position: absolute;
+  display: inline;
+  top: 75%;
+  left: 85%;
 }

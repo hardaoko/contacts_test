@@ -29,7 +29,7 @@ export const getLogin = (login: string, password: string) => {
     });
     loginRequest(login, password)
       .then((data) => {
-        console.log(data);
+
         if (data) {
           dispatch({
             type: LOGIN_SUCCESS,
