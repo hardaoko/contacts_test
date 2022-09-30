@@ -21,7 +21,11 @@ export interface IGetContactsFailed  {type: typeof GET_CONTACTS_FAILED;}
 
 export interface IAddContactsRequest  {type: typeof ADD_CONTACTS_REQUEST;}
 export interface IAddContactsFailed  {type: typeof ADD_CONTACTS_FAILED;}
-export interface IAddContactsSuccess  {type: typeof ADD_CONTACTS_SUCCESS;}
+
+export interface IAddContactsSuccess  {
+  type: typeof ADD_CONTACTS_SUCCESS;
+  payload: IContact;
+}
 
 export interface IGetContactsSuccess  {
   type: typeof GET_CONTACTS_SUCCESS;
@@ -84,7 +88,8 @@ export const addContact: AppThunk = (name: string, description: string) => {
           if (data) {
             console.log("data", data)
             dispatch({
-              type: ADD_CONTACTS_SUCCESS
+              type: ADD_CONTACTS_SUCCESS,
+              payload: data,
             });
           } else {
             dispatch(addContactsFailed());

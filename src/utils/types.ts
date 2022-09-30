@@ -5,7 +5,6 @@ import { TContactsActions } from "../services/actions/contacts";
 import { TProfileActions } from "../services/actions/profile";
 import { store } from "../services/store";
 
-
 export interface IProfileState {
   loginRequest: boolean,
   loginSuccess: boolean,
@@ -25,6 +24,10 @@ export interface IContactsState {
   contactsFailed: boolean,
   contacts: IContact[],
   modalVisible: boolean
+}
+
+export interface IHeaderBarProps {
+  onChangeSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export interface IContactCardProps {

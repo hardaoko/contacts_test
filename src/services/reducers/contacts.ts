@@ -50,6 +50,7 @@ export const contactsReducer = (state = initialProfile, action: TContactsActions
         contactsRequest: false,
         contactsSuccess: true,
         contactsFailed: false,
+
       };
     }
     case ADD_CONTACTS_FAILED: {

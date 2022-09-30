@@ -1,7 +1,8 @@
 import { Grid } from '@mui/material';
-import React from 'react';
+import { useState } from 'react';
 import { AddContact } from '../../components/AddContact/AddContact';
 import { ContactCard } from '../../components/ContactCard/ContactCard';
+import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import {Modal} from '../../components/Modal/Modal';
 import { MODAL_CLOSE, MODAL_OPEN } from '../../services/actions/contacts';
 import { useMyDispatch, useMySelector } from '../../utils/types';
@@ -9,9 +10,14 @@ import './Contacts.css'
 
 export const Contacts = () => {
   const { contacts, modalVisible } = useMySelector((store) => store.contacts);
+  const [search, setSearch] = useState("");
+
   const dispatch = useMyDispatch()
 
-  //  Открытие модального окна
+  const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   const openModal = () => {
     dispatch({ type: MODAL_OPEN });
   };
@@ -27,23 +33,28 @@ export const Contacts = () => {
   );
 
   return (
+    <div className='main_container'>
+      <HeaderBar onChangeSearch={onChangeSearch} />
+      <main className='contacts_container'>
 
-    <div className='contacts_container'>
-      {modalVisible && modal}
-      {contacts.length > 0 && (
-        <Grid container spacing={3}>
-          {contacts.map((item) => {
-            return (<Grid item>
-              <ContactCard name={item.name} description={item.description}/>
-            </Grid>)
-          })}
-          <Grid item alignSelf={'center'}>
-            <div className="button_wrapper" onClick={openModal}>
-              <button>+</button>
-            </div>
+        {modalVisible && modal}
+
+        <div className="button_wrapper" onClick={openModal}>
+          <button>+</button>
+        </div>
+
+        {contacts.length > 0 && (
+          <Grid container spacing={3} justifyContent='center'>
+            {contacts.map((item) => {
+              return (
+              <Grid item key={item.id}>
+                <ContactCard name={item.name} description={item.description}/>
+              </Grid>)
+            })}
           </Grid>
-        </Grid>
-      )}
+        )}
+
+      </main>
     </div>
   )
 }

@@ -1,16 +1,24 @@
+.main_container {
+  display: flex;
+  flex-direction: column;
+}
+
 .contacts_container{
+  position: relative;
   padding: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .button_wrapper {
-  height: 120px;
-  width: 120px;
+  position: fixed;
+  bottom: 5%;
+  right: 10%;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
-  justify-content: center;
-  align-content: center;
   background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .button_wrapper > button {
@@ -20,5 +28,5 @@
   transform: translate(-50%, -55%);
   background-color: transparent;
   border: 0px;
-  font-size: 40px;
+  font-size: 30px;
 }

@@ -1,4 +1,3 @@
-import { Card } from "@mui/material";
 import { FC } from "react";
 import { IContactCardProps } from '../../utils/types'
 import DeleteIcon from '@mui/icons-material/Delete';

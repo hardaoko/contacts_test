@@ -6,8 +6,6 @@ import './Login.css'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-import { contactsRequest } from '../../services/Api';
-import { getContacts } from '../../services/actions/contacts';
 
 
 export const Login = () => {
