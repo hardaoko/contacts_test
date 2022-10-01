@@ -1,6 +1,8 @@
 .main_container {
   display: flex;
   flex-direction: column;
+  margin: 0 10px;
+  border: 1px solid purple;
 }
 
 .contacts_container{
@@ -17,16 +19,8 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-size: 34px;
 }
 
-.button_wrapper > button {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -55%);
-  background-color: transparent;
-  border: 0px;
-  font-size: 30px;
-}

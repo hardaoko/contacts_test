@@ -17,7 +17,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export const HeaderBar: FC<IHeaderBarProps> = ({onChangeSearch}) => {
 
-
   return (
     <header>
       <TextField

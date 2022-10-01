@@ -26,6 +26,10 @@ export interface IContactsState {
   modalVisible: boolean
 }
 
+export interface IContactsListProps {
+  filteredContacts: IContact[],
+}
+
 export interface IHeaderBarProps {
   onChangeSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
