@@ -1,5 +1,21 @@
 import { IContactsState } from "../../utils/types";
-import { ADD_CONTACTS_FAILED, ADD_CONTACTS_REQUEST, ADD_CONTACTS_SUCCESS, DELETE_CONTACTS_FAILED, DELETE_CONTACTS_REQUEST, DELETE_CONTACTS_SUCCESS, EDIT_CONTACTS_FAILED, EDIT_CONTACTS_REQUEST, EDIT_CONTACTS_SUCCESS, GET_CONTACTS_FAILED, GET_CONTACTS_REQUEST, GET_CONTACTS_SUCCESS, MODAL_CLOSE, MODAL_OPEN, TContactsActions } from "../actions/contacts";
+import {
+  ADD_CONTACTS_FAILED,
+  ADD_CONTACTS_REQUEST,
+  ADD_CONTACTS_SUCCESS,
+  DELETE_CONTACTS_FAILED,
+  DELETE_CONTACTS_REQUEST,
+  DELETE_CONTACTS_SUCCESS,
+  EDIT_CONTACTS_FAILED,
+  EDIT_CONTACTS_REQUEST,
+  EDIT_CONTACTS_SUCCESS,
+  GET_CONTACTS_FAILED,
+  GET_CONTACTS_REQUEST,
+  GET_CONTACTS_SUCCESS,
+  MODAL_CLOSE,
+  MODAL_OPEN,
+  TContactsActions,
+} from "../actions/contacts";
 
 const initialProfile: IContactsState = {
   contactsRequest: false,
@@ -19,7 +35,10 @@ const initialProfile: IContactsState = {
   modalVisible: false,
 };
 
-export const contactsReducer = (state = initialProfile, action: TContactsActions) => {
+export const contactsReducer = (
+  state = initialProfile,
+  action: TContactsActions
+) => {
   switch (action.type) {
     case GET_CONTACTS_REQUEST: {
       return {
@@ -110,7 +129,6 @@ export const contactsReducer = (state = initialProfile, action: TContactsActions
         editContactRequest: false,
         editContactSuccess: true,
         editContactFailed: false,
-
       };
     }
     case EDIT_CONTACTS_FAILED: {

@@ -2,8 +2,9 @@
   "users": [
     {
       "id": 1,
-      "name": "takeoff-staff",
-      "password": "password"
+      "name": "user",
+      "password": "password",
+      "auth": true
     }
   ],
   "contacts": [
@@ -23,7 +24,7 @@
       "description": "Info about Contact Two"
     },
     {
-      "name": "Contact Three One Two Two",
+      "name": "ContactjjThree One Two Twojjj",
       "description": "Info about Contact Three",
       "id": 6
     },
@@ -43,77 +44,14 @@
       "id": 9
     },
     {
+      "name": "Alexandr",
+      "description": "8988456884566",
       "id": 10
     },
     {
-      "name": "qrewr",
-      "description": "",
+      "name": "JohnFedor",
+      "description": "aaaag",
       "id": 11
-    },
-    {
-      "name": "rqwerqwrg",
-      "description": "",
-      "id": 12
-    },
-    {
-      "name": "sgdfgsdfg",
-      "description": "",
-      "id": 13
-    },
-    {
-      "name": "sdfgsdfgs",
-      "description": "",
-      "id": 14
-    },
-    {
-      "name": "sfgsdfgktuik",
-      "description": "srgsdfgs",
-      "id": 15
-    },
-    {
-      "name": "dfgsdfgsdfgsg",
-      "description": "sdfgsdfg",
-      "id": 16
-    },
-    {
-      "name": "sdfgsdfgsdfg",
-      "description": "sfdgsdfg",
-      "id": 17
-    },
-    {
-      "name": "sdfgsdfg",
-      "description": "sdfgsdfgs",
-      "id": 18
-    },
-    {
-      "name": "gwg",
-      "description": "wergw",
-      "id": 22
-    },
-    {
-      "name": "wergw",
-      "description": "wgerg",
-      "id": 23
-    },
-    {
-      "name": "wgerg",
-      "description": "wergwe",
-      "id": 24
-    },
-    {
-      "name": "wgrweg",
-      "description": "wergwerg",
-      "id": 25
-    },
-    {
-      "name": "vadv",
-      "description": "sdvsdf",
-      "id": 26
-    },
-    {
-      "name": "Ale",
-      "description": "ale",
-      "id": 27
     }
   ]
 }
