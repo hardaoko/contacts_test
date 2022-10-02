@@ -36,7 +36,7 @@ export const Login = () => {
     return (
       <div className='login_container'>
         <form>
-          <Stack spacing={4}>
+          <Stack spacing={4} sx={{ width: 300 }}>
             <TextField
               id="login"
               label="Login"

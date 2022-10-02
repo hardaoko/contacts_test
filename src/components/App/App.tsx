@@ -7,11 +7,17 @@ import './App.css';
 
 function App() {
   const dispatch: AppDispatch = useMyDispatch();
-  const { contacts } = useMySelector((store) => store.contacts);
+  const { addContactSuccess,
+    deleteContactSuccess,
+    editContactSuccess } = useMySelector((store) => store.contacts);
 
   useEffect(() => {
     dispatch(getContacts());
-  }, [dispatch]);
+  }, [dispatch,
+    addContactSuccess,
+    deleteContactSuccess,
+    editContactSuccess]
+  );
 
   return (
     <Router>

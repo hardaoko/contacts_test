@@ -20,7 +20,14 @@
   overflow: hidden;
 }
 
-.icon_wrapper {
+.edit_wrapper {
+  position: absolute;
+  display: inline;
+  top: 75%;
+  left: 75%;
+}
+
+.delete_wrapper {
   position: absolute;
   display: inline;
   top: 75%;

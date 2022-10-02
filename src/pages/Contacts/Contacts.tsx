@@ -1,16 +1,18 @@
 import { Grid } from '@mui/material';
 import { useMemo, useState} from 'react';
-import { AddContact } from '../../components/AddContact/AddContact';
+import { ContactForm } from '../../components/AddContact/ContactForm';
 import { ContactCard } from '../../components/ContactCard/ContactCard';
 import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { Modal } from '../../components/Modal/Modal';
-import { MODAL_CLOSE, MODAL_OPEN } from '../../services/actions/contacts';
-import { IContact, useMyDispatch, useMySelector } from '../../utils/types';
+import { deleteContact, MODAL_CLOSE, MODAL_OPEN } from '../../services/actions/contacts';
+import { useMyDispatch, useMySelector } from '../../utils/types';
 import AddIcon from '@mui/icons-material/Add';
 import './Contacts.css'
 
 export const Contacts = () => {
-  const { contacts, modalVisible } = useMySelector((store) => store.contacts);
+  const { contacts,
+    contactDetails,
+    modalVisible } = useMySelector((store) => store.contacts);
   const [ search, setSearch ] = useState("");
   const dispatch = useMyDispatch()
 
@@ -19,7 +21,7 @@ export const Contacts = () => {
   };
 
   const openModal = () => {
-    dispatch({ type: MODAL_OPEN });
+    dispatch({ type: MODAL_OPEN, payload: null});
   };
 
   const closeModal = () => {
@@ -28,7 +30,12 @@ export const Contacts = () => {
 
   const modal = (
     <Modal onClose={closeModal}>
-      <AddContact/>
+      {
+        contactDetails === null ?
+        <ContactForm closeModal={closeModal} isEdit={false} /> :
+        <ContactForm closeModal={closeModal} isEdit={true}
+          contact={contactDetails}/>
+      }
     </Modal>
   );
 
@@ -37,34 +44,40 @@ export const Contacts = () => {
       <>
         {contacts.length > 0 && (
           <Grid container spacing={3} justifyContent='center'>
-            {contacts.filter((contact) => contact.name?.toUpperCase().includes(search.toUpperCase()))
+            {contacts.filter((contact) =>
+              contact.name?.toUpperCase().includes(search.toUpperCase()))
               .map((item) => {
                 return (
                 <Grid item key={item.id}>
-                  <ContactCard name={item.name} description={item.description}/>
+                  <ContactCard
+                    contact={item}
+                    editModal={() => {dispatch({type: MODAL_OPEN, payload: item})}}
+                    deleteContact={() => {dispatch(deleteContact(item.id))}}
+                  />
                 </Grid>)
               })}
           </Grid>
         )}
       </>
     )
-  }, [search, contacts])
+  }, [search, contacts, dispatch])
 
   return (
-    <div className='main_container'>
+    <>
       <HeaderBar onChangeSearch={onChangeSearch} />
-      <main className='contacts_container'>
+      <main className='main_container'>
+        <div className='contacts_container'>
 
-        {modalVisible && modal}
+          {modalVisible && modal}
 
-        {ContactsList}
+          {ContactsList}
 
-        <div className="button_wrapper" onClick={openModal}>
-          <AddIcon/>
+          <div className="button_wrapper" onClick={openModal}>
+            <AddIcon/>
+          </div>
         </div>
-
       </main>
-    </div>
+    </>
   )
 }
 

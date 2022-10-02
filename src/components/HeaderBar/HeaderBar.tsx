@@ -30,7 +30,8 @@ export const HeaderBar: FC<IHeaderBarProps> = ({onChangeSearch}) => {
             </InputAdornment>
           ),
         }}
-        onChange={onChangeSearch}/>
+        onChange={onChangeSearch}
+        sx={{marginRight: '5vw'}}/>
     </header>
   )
 

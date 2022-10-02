@@ -25,9 +25,6 @@ export const Modal:FC<IModalProps> = ({ title, onClose, children }) => {
     <>
       <div className='modal_container'>
         <div className='modal_header'>
-            <h2 className='header_title'>
-              Add Contact
-            </h2>
           <button onClick={onClose} className='modal_button' data-at="close-button">
             <CloseIcon/>
           </button>

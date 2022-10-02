@@ -29,3 +29,23 @@ export const addContactRequest = async (name: string, description: string) => {
   });
   return checkResponse(res);
 };
+
+export const deleteContactRequest = async (id: number) => {
+  const res = await fetch(`${baseUrl}/contacts/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json;charset=utf-8" },
+  });
+  return checkResponse(res);
+};
+
+export const putContactRequest = async (id: number, name: string, description: string) => {
+  const res = await fetch(`${baseUrl}/contacts/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json;charset=utf-8" },
+    body: JSON.stringify({
+      name: name,
+      description: description,
+    }),
+  });
+  return checkResponse(res);
+};

@@ -22,12 +22,28 @@ export interface IContactsState {
   contactsRequest: boolean,
   contactsSuccess: boolean,
   contactsFailed: boolean,
+  addContactRequest: boolean,
+  addContactSuccess: boolean,
+  addContactFailed: boolean,
+  deleteContactRequest: boolean,
+  deleteContactSuccess: boolean,
+  deleteContactFailed: boolean,
+  editContactRequest: boolean,
+  editContactSuccess: boolean,
+  editContactFailed: boolean,
   contacts: IContact[],
-  modalVisible: boolean
+  contactDetails: IContact | null,
+  modalVisible: boolean,
 }
 
 export interface IContactsListProps {
   filteredContacts: IContact[],
+}
+
+export interface IAddContactProps {
+  closeModal: () => void,
+  isEdit: boolean,
+  contact?: IContact
 }
 
 export interface IHeaderBarProps {
@@ -35,8 +51,9 @@ export interface IHeaderBarProps {
 }
 
 export interface IContactCardProps {
-  name: string,
-  description: string,
+  contact: IContact,
+  editModal: () => void
+  deleteContact: () => void
 }
 
 export interface IModalOverlayProps {
