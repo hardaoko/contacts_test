@@ -23,9 +23,9 @@
       "description": "Info about Contact Two"
     },
     {
-      "id": 6,
-      "name": "Contact Three One Two Two fqwefwe qrfwerfgwer gwergwergwerg wergwergwerg",
-      "description": "Info about Contact Threefq qfeqwefqwefqwefbquwfbiqehbfouqhbf   qfewfqwefqweuifnoqwefnoqwenfoqefbnoqfnoqewnfoqwenfpqiwenfpqwejfnpqwejfnpqojefnqpowjefnqofnwqiopefnjqwenfioqwjenfoqiwjefnqipwejnfpiqw"
+      "name": "Contact Three One Two Two",
+      "description": "Info about Contact Three",
+      "id": 6
     },
     {
       "id": 7,
@@ -109,6 +109,11 @@
       "name": "vadv",
       "description": "sdvsdf",
       "id": 26
+    },
+    {
+      "name": "Ale",
+      "description": "ale",
+      "id": 27
     }
   ]
 }

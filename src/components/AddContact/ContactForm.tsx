@@ -12,7 +12,7 @@ export const ContactForm: FC<IAddContactProps> = ({closeModal, isEdit, contact})
 
 
   const dispatch = useMyDispatch();
-  const {addContactSuccess, editContactSuccess} = useMySelector((store) => store.contacts)
+  const {addContactFailed, editContactFailed} = useMySelector((store) => store.contacts)
 
   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -25,9 +25,14 @@ export const ContactForm: FC<IAddContactProps> = ({closeModal, isEdit, contact})
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name) return;
-    isEdit ? dispatch(editContact(contact?.id, name, description)) :
+    if (isEdit === true) {
+      dispatch(editContact(contact?.id, name, description))
+      !editContactFailed && closeModal();
+    }
+    else{
       dispatch(addContact(name, description));
-    closeModal();
+      !addContactFailed && closeModal();
+    }
   };
 
   return (
