@@ -7,6 +7,8 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
 
 export const ContactCard: FC<IContactCardProps> = ({
   contact,
@@ -24,17 +26,24 @@ export const ContactCard: FC<IContactCardProps> = ({
   };
 
   return (
-    <div className="card_container">
+    <Card
+      sx={{ width: '210px',
+      height: '120px',
+      padding: '10px 10px 20px 30px'
+      }}
+      >
       <div className="info_wrapper">
         <h3 className="text">{contact.name}</h3>
         <p className="text">{contact.description}</p>
       </div>
-      <div className="edit_wrapper" onClick={editModal}>
-        <EditIcon color="disabled" />
-      </div>
-      <div className="delete_wrapper" onClick={handleOpenConfirm}>
-        <DeleteIcon color="disabled" />
-      </div>
+      <CardActions sx={{justifyContent: 'flex-end'}}>
+        <Button size="small" onClick={editModal} sx={{minWidth:'0'}}>
+          <EditIcon/>
+        </Button>
+        <Button size="small" onClick={handleOpenConfirm} sx={{minWidth:'0'}}>
+          <DeleteIcon/>
+        </Button>
+      </CardActions>
 
       <Dialog
         open={openConfirm}
@@ -58,6 +67,6 @@ export const ContactCard: FC<IContactCardProps> = ({
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </Card>
   );
 };

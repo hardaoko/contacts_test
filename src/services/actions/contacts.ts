@@ -92,7 +92,7 @@ export const getContacts: AppThunk = () => {
             dispatch({
               type: GET_CONTACTS_SUCCESS,
               payload: data,
-            });
+            })
           } else {
             dispatch(getContactsFailed());
           }
@@ -120,6 +120,7 @@ export const addContact: AppThunk = (name: string, description: string) => {
             dispatch({
               type: ADD_CONTACTS_SUCCESS
             });
+            dispatch(getContacts());
           } else {
             dispatch(addContactsFailed());
           }
@@ -147,6 +148,7 @@ export const deleteContact: AppThunk = (id: number) => {
             dispatch({
               type: DELETE_CONTACTS_SUCCESS
             });
+            dispatch(getContacts());
           } else {
             dispatch(deleteContactsFailed());
           }
@@ -174,6 +176,7 @@ export const editContact: AppThunk = (id: number, name: string, description: str
             dispatch({
               type: EDIT_CONTACTS_SUCCESS
             });
+            dispatch(getContacts());
           } else {
             dispatch(editContactsFailed());
           }

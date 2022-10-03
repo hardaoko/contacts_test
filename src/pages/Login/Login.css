@@ -1,7 +1,7 @@
-.login_container {
+.login_form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 180px;
+  padding-top: 30vh;
 }
 
